@@ -3,6 +3,7 @@ class ShortenedLink < ApplicationRecord
 
   before_save :init_uid
 
+  validates :uid, presence: true, length: { is: 6 }
   validates :url, presence: true, format: URL_FORMAT
 
   def shortened_url
