@@ -9,9 +9,7 @@ class ShortenedLink < ApplicationRecord
   def shortened_url
     options = Rails.application.routes.default_url_options
 
-    url = options[:port].present? ? options[:host] : "#{options[:host]}:#{options[:port]}"
-
-    "#{url}/#{uid}"
+    "#{options[:host]}/#{uid}"
   end
 
   private
