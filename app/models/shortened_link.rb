@@ -5,6 +5,12 @@ class ShortenedLink < ApplicationRecord
 
   validates :url, presence: true, format: URL_FORMAT
 
+  def shortened_url
+    options = Rails.application.routes.default_url_options
+
+    "#{options[:host]}:#{options[:port]}/#{uid}"
+  end
+
   private
 
   def init_uid
