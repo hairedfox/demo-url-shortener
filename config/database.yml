@@ -50,6 +50,8 @@ test:
 #
 production:
   <<: *default
+  adapter: posgresql
+  encoding: utf8
   database: shorten_urls_production
   username: shorten_urls
   password: <%= ENV["SHORTEN_URLS_DATABASE_PASSWORD"] %>
