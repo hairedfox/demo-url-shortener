@@ -1,7 +1,7 @@
 class ShortenedLink < ApplicationRecord
   URL_FORMAT = /\Ahttp(s)?:\/\/(www\.)?.+\z/.freeze
 
-  before_save :init_uid
+  before_validation :init_uid
 
   validates :uid, presence: true, length: { is: 6 }
   validates :url, presence: true, format: URL_FORMAT
